@@ -33,6 +33,7 @@ opt.smartcase = true
 -- disable backup
 opt.backup = false
 opt.writebackup = false
+opt.swapfile = false
 
 -- history
 opt.history = 10

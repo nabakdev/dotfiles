@@ -122,6 +122,7 @@ alias ll='ls -l'
 alias pg='prettyping --nolegend'
 alias dl="axel -4 -n4"
 alias zshrc="${=EDITOR} ~/.zshrc"
+alias nvimrc="${=EDITOR} ~/.config/nvim/init.lua"
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
