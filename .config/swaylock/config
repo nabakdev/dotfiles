@@ -1,0 +1,25 @@
+font=Lucida Grande
+font-size=16px
+
+color=1e222a
+text-color=ffffff
+
+inside-color=303643
+inside-wrong=e06c75
+inside-ver=c678dd
+inside-clear-color=61afef
+
+line-color=383f4e
+line-ver-color=383f4e
+line-wrong-color=383f4e
+line-clear-color=383f4e
+
+bs-hl-color=e5c07b
+key-hl-color=fa5aa4
+
+ring-color=1e222a
+ring-clear-color=61afef
+ring-ver-color=c678dd
+ring-wrong-color=e06c75
+
+indicator-idle-visible

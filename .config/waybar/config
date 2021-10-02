@@ -1,0 +1,77 @@
+{
+  "layer": "top",
+    "position": "top",
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "tray",
+      "custom/updates"
+      ],
+    "modules-center": [
+        "clock"
+      ],
+    "modules-right": [
+      "network",
+      "temperature",
+      "memory",
+      "cpu",
+      "custom/powermenu",
+    ],
+    "tray": {
+      "icon-size": 24,
+    },
+    "sway/window": {
+      "format": "<span style=\"italic\">{}</span>",
+      "max-length": 50
+    },
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{icon} {name}",
+      "format-icons": {
+        "1": " ",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
+        "urgent": " ",
+        "focused": " ",
+        "default": " "
+      }
+    },
+    "network": {
+      "interval": 2,
+      "format": " {bandwidthDownBits}  {bandwidthUpBits}",
+    },
+    "temperature": {
+      "format": "{icon} {temperatureC}°C",
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      "format-icons": ["", "", ""]
+    },
+    "memory": {
+      "format": " {}%",
+      "tooltip": "false"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": "false"
+    },
+    "custom/powermenu": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "exec $HOME/.config/rofi/powermenu.sh",
+    },
+    "custom/updates": {
+      "format": " {}",
+      "tooltip": false,
+      "interval": 3600,
+      "exec": "exec $HOME/.config/waybar/checkupdate.sh"
+    },
+    "clock": {
+      //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
+      "format": "{:%H:%M}",
+      "interval": 60
+    }
+}
+
