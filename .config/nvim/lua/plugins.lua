@@ -18,39 +18,71 @@ return require('packer').startup({function()
     end
   }
   use {
-    'neovim/nvim-lspconfig',
-    event = 'BufRead',
-    config = function() require'configs/lspconfig' end
-  }
-  use 'kabouzeid/nvim-lspinstall'
---  use {
---    'Pocco81/AutoSave.nvim',
---    event = 'BufModifiedSet',
---    config = function()
---      require'autosave'.setup()
---    end
---  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     event = 'BufRead',
     run = ':TSUpdate',
     config = function() require'configs/nvim-treesitter' end
   }
   use {
-    'onsails/lspkind-nvim',
-    event = 'BufRead',
-    config = function() require'lspkind'.init() end
-  }
-  use {
     'kyazdani42/nvim-tree.lua',
+    wants = { "nvim-web-devicons" },
+    keys = {"<leader>\\"},
     config = function() require'configs/nvim-tree' end
   }
+
   use {
-    'hrsh7th/nvim-compe',
-    ----event = 'InsertEnter',
-		config = function() require'configs/compe' end
+    'b3nj5m1n/kommentary',
+    config = function()
+      require('kommentary.config').use_extended_mappings()
+    end
   }
-  use 'sbdchd/neoformat'
+
+  -- neovim completions
+  use 'neovim/nvim-lspconfig'
+  use {
+    'kabouzeid/nvim-lspinstall',
+    --event = 'BufRead',
+    config = function() require'configs/nvim-lspinstall' end
+  }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      {
+        "hrsh7th/cmp-nvim-lsp",
+        after = { "nvim-cmp" },
+        -- opt = true,
+      },
+      {
+        "saadparwaiz1/cmp_luasnip",
+        after = { "nvim-cmp" },
+        wants = { "LuaSnip" },
+        -- opt = true,
+      },
+      {
+        "hrsh7th/cmp-buffer",
+        after = { "nvim-cmp" },
+        -- opt = true,
+      },
+      {
+        "hrsh7th/cmp-path",
+        after = { "nvim-cmp" },
+        -- opt = true,
+      },
+    },
+    event = { "InsertEnter" },
+		config = function() require'configs/nvim-cmp' end
+  }
+  use {
+    'onsails/lspkind-nvim',
+		config = function() require'configs/lspkind-nvim' end
+  }
+  use { "rafamadriz/friendly-snippets", module = { "luasnip" } }
+  use {
+    'L3MON4D3/LuaSnip',
+    wants = { "friendly-snippets" },
+    event = { "InsertEnter" },
+		config = function() require'configs/luasnip' end
+  }
   use {
     'akinsho/toggleterm.nvim',
     config = function() require'configs/toggleterm' end
@@ -69,10 +101,10 @@ return require('packer').startup({function()
       require('neoscroll').setup()
     end
   }
-  --use 'digitaltoad/vim-pug'
   use {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
+    --event = { "InsertCharPre" },
 		config = function() require'configs/nvim-autopairs' end
   }
   use {
@@ -86,7 +118,6 @@ return require('packer').startup({function()
       vim.g.indent_blankline_show_trailing_blankline_indent = false
       vim.g.indent_blankline_show_first_indent_level = false
     end
-		--config = function() require'configs/bufferline' end
   }
   use {
     'akinsho/nvim-bufferline.lua',
@@ -99,14 +130,11 @@ return require('packer').startup({function()
 		config = function() require'configs/statusline' end
   }
 
-  -- snippet support
   use {
-    'hrsh7th/vim-vsnip',
-    event = 'InsertCharPre'
+    'norcalli/nvim-colorizer.lua',
+		config = function() require'colorizer'.setup() end
   }
-  use 'rafamadriz/friendly-snippets'
-	-- Appearance
-  --use 'sheerun/vim-polyglot'
+
 	use {
 		'navarasu/onedark.nvim',
 		config = function()
