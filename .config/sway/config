@@ -160,6 +160,15 @@ output * bg $HOME/.wallpapers/neon.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+# screenshot
+bindsym Shift+Print exec grim -t png "${HOME}/Pictures/screenshots/screenshot-`date +%F-%T`.png"
+    
+# capture the specified screen area to clipboard    
+bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy    
+    
+# capture the focused monitor to clipboard    
+bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
 #
 # Scratchpad:
 #
