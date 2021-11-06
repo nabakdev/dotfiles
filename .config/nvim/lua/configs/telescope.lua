@@ -29,7 +29,7 @@ M.config = function()
         }
       },
       file_sorter = require "telescope.sorters".get_fuzzy_file,
-      file_ignore_patterns = {'public/.*', 'cache/.*'},
+      file_ignore_patterns = {'public/.*', 'cache/.*', 'node_modules/*', 'vendor/*'},
       generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
       winblend = 0,
       border = {},
