@@ -115,6 +115,7 @@ fi
 #
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias dmesg='dmesg --color=always'
 alias ip='ip -color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A'
@@ -124,6 +125,7 @@ alias dl="axel -4 -n4"
 alias zshrc="${=EDITOR} ~/.zshrc"
 alias nvimrc="${=EDITOR} ~/.config/nvim/init.lua"
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias xz='xz -T $(nproc)'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
