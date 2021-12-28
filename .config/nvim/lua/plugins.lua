@@ -40,9 +40,9 @@ return require('packer').startup({function()
   -- neovim completions
   use 'neovim/nvim-lspconfig'
   use {
-    'kabouzeid/nvim-lspinstall',
+    'williamboman/nvim-lsp-installer',
     --event = 'BufRead',
-    config = function() require'configs/nvim-lspinstall' end
+    config = function() require'configs/nvim-lsp-installer' end
   }
   use {
     'hrsh7th/nvim-cmp',

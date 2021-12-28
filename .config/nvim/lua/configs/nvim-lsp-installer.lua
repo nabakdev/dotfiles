@@ -78,39 +78,52 @@ end
 
 -- lsp-install
 local function setup_servers()
-  require'lspinstall'.setup()
+  -- require'lspinstall'.setup()
 
   -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
+  -- local servers = require'lspinstall'.installed_servers()
   -- ... and add manually installed servers
-  table.insert(servers, "clangd")
-  table.insert(servers, "sourcekit")
+  -- table.insert(servers, "clangd")
+  -- table.insert(servers, "sourcekit")
 
-  for _, server in pairs(servers) do
-    local config = make_config()
+  -- for _, server in pairs(servers) do
+    -- local config = make_config()
 
     -- language specific config
-    if server == "lua" then
-      config.settings = lua_settings
-    end
-    if server == "sourcekit" then
-      config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
-    end
-    if server == "clangd" then
-      config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
-    end
+    -- if server == "lua" then
+      -- config.settings = lua_settings
+    -- end
+    -- if server == "sourcekit" then
+      -- config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
+    -- end
+    -- if server == "clangd" then
+      -- config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+    -- end
 
-    require'lspconfig'[server].setup(config)
+    -- require'lspconfig'[server].setup(config)
+  -- end
+  local lsp_installer_servers = require'nvim-lsp-installer.servers'
+
+  local server_available, requested_server = lsp_installer_servers.get_server("rust_analyzer")
+  if server_available then
+    requested_server:on_ready(function ()
+      local opts = {}
+      requested_server:setup(opts)
+    end)
+    if not requested_server:is_installed() then
+      -- Queue the server to be installed
+      requested_server:install()
+    end
   end
 end
 
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+-- require'lspinstall'.post_install_hook = function ()
+  -- setup_servers() -- reload installed servers
+  -- vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+-- end
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
