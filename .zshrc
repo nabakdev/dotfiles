@@ -77,6 +77,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+. "$HOME/.local/share/lscolors.sh"
 
 # User configuration
 
