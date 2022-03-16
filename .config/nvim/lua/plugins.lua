@@ -138,9 +138,10 @@ return require('packer').startup({function()
 	use {
 		'navarasu/onedark.nvim',
 		config = function()
-      vim.g.onedark_style = 'cool'
-      vim.g.disable_toggle_style = 1
-      require'onedark'.setup()
+      require'onedark'.setup {
+        style = 'darker'
+      }
+      require'onedark'.load()
     end
 	}
   use 'kyazdani42/nvim-web-devicons'

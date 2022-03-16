@@ -1,0 +1,44 @@
+### cmus gruvbox theme - Maciej Sypien
+### {{{
+# bottom command line
+set color_cmdline_bg=235
+set color_cmdline_fg=223
+
+# partials
+set color_error=167
+set color_info=214
+set color_separator=239
+
+# bottom status bar
+set color_statusline_bg=237
+set color_statusline_fg=223
+
+# bottom status with currently displayed track
+set color_titleline_bg=72
+set color_titleline_fg=236
+
+# center/main window
+set color_win_bg=235
+set color_win_fg=243
+set color_win_dir=243
+set color_win_cur=108
+set color_win_cur_sel_bg=72
+set color_win_cur_sel_fg=237
+
+# selected
+set color_win_sel_bg=237
+set color_win_sel_fg=246
+
+# inactive current selected (currently played)
+set color_win_inactive_cur_sel_bg=72
+set color_win_inactive_cur_sel_fg=237
+
+# inactive selected (active album)
+set color_win_inactive_sel_bg=237
+set color_win_inactive_sel_fg=243
+
+# top player bar
+set color_win_title_bg=142
+set color_win_title_fg=235
+### }}}
+

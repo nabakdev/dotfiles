@@ -126,6 +126,8 @@ alias zshrc="${=EDITOR} ~/.zshrc"
 alias nvimrc="${=EDITOR} ~/.config/nvim/init.lua"
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias xz='xz -T $(nproc)'
+alias ydl='youtube-dl --cookies /home/nabak/.youtube-cookies.txt -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail'
+# --embed-thumbnail 
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then

@@ -25,6 +25,7 @@
 #temperature,
 #memory,
 #workspaces,
+#pulseaudio,
 #network {
   padding: 4px 8px;
   background-color: #303643;
@@ -50,6 +51,11 @@
   color: #e06c75;
   padding-right: 11px;
   margin-right: 8px;
+}
+
+#pulseaudio {
+  color: #0fb9b1;
+  padding-right: 14px;
 }
 
 #cpu {

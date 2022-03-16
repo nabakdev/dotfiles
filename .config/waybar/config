@@ -15,6 +15,7 @@
       "temperature",
       "memory",
       "cpu",
+      "pulseaudio",
       "custom/powermenu",
     ],
     "tray": {
@@ -40,6 +41,8 @@
       }
     },
     "network": {
+      "interface": "enp34s0",
+      "tooltip-format-ethernet": "{ifname} ",
       "interval": 2,
       "format": " {bandwidthDownBits}  {bandwidthUpBits}",
     },
@@ -67,6 +70,22 @@
       "tooltip": false,
       "interval": 3600,
       "exec": "exec $HOME/.config/waybar/checkupdate.sh"
+    },
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol"
     },
     "clock": {
       //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
