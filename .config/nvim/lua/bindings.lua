@@ -4,7 +4,7 @@ local map = vim.api.nvim_set_keymap
 
 -- ESC
 map('i', 'jk', '<ESC>', opt)
-map('v', 'jk', '<ESC>', opt)
+map('v', 'JK', '<ESC>', opt)
 
 -- Quick save
 map('n', '<leader>w', ':w<cr>', opt)

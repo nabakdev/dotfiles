@@ -1,9 +1,9 @@
 local M = {}
 
 M.config = function()
-  require("telescope").setup {
+  require('telescope').setup {
     defaults = {
-      vimgrep_arguments = {
+      --[[ vimgrep_arguments = {
         "rg",
         "--color=never",
         "--no-heading",
@@ -11,15 +11,14 @@ M.config = function()
         "--line-number",
         "--column",
         "--smart-case"
-      },
+      }, ]]
       prompt_prefix = "   ",
-      selection_caret = "  ",
-      entry_prefix = "  ",
-      initial_mode = "insert",
-      selection_strategy = "reset",
-      sorting_strategy = "descending",
-      layout_strategy = "horizontal",
-      layout_config = {
+      selection_caret = "   ",
+      entry_prefix = "   ",
+      -- selection_caret = "  ",
+      -- entry_prefix = "  ",
+      -- initial_mode = "insert",
+      --[[ layout_config = {
         horizontal = {
           mirror = false,
           preview_width = 0.55
@@ -27,21 +26,30 @@ M.config = function()
         vertical = {
           mirror = false
         }
-      },
-      file_sorter = require "telescope.sorters".get_fuzzy_file,
-      file_ignore_patterns = {'public/.*', 'cache/.*', 'node_modules/*', 'vendor/*'},
-      generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
+      }, ]]
+      -- file_sorter = require "telescope.sorters".get_fuzzy_file,
+      file_ignore_patterns = {'^public/', '^cache/', '^.cache/', '^node_modules/', '^vendor/'},
+      -- generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
       winblend = 0,
       border = {},
-      borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-      color_devicons = true,
+      -- borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
+      -- color_devicons = true,
       use_less = true,
-      set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
-      file_previewer = require "telescope.previewers".vim_buffer_cat.new,
-      grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
-      qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
+      set_env = { COLORTERM = "truecolor" },
+      -- file_previewer = require "telescope.previewers".vim_buffer_cat.new,
+      -- grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
+      -- qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
       -- Developer configurations: Not meant for general override
-      buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
+      -- buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker,
+      preview = {
+        treesitter = true
+      },
+      mappings = {
+        i = {
+          ['<esc>'] = require('telescope.actions').close,
+          ['jk'] = require('telescope.actions').close,
+        }
+      }
     },
     extensions = {
       fzf = {
@@ -55,6 +63,11 @@ M.config = function()
         filetypes = {"png", "webp", "jpg", "jpeg"},
         find_cmd = "rg" -- find command (defaults to `fd`)
       }
+    },
+    pickers = {
+      find_files = {
+        find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' }
+      }
     }
   }
 
@@ -64,9 +77,9 @@ end
 
 local opt = {silent = true, noremap = true}
 local map = vim.api.nvim_set_keymap
-map('n', '<leader>ff', ':Telescope find_files<CR>', opt)
-map('n', '<leader>fg', ':Telescope live_grep<CR>', opt)
-map('n', '<leader>fb', ':Telescope buffers<CR>', opt)
-map('n', '<leader>fh', ':Telescope help_tags<CR>', opt)
+map('n', '<leader>ff', ':lua require("telescope.builtin").find_files()<CR>', opt)
+map('n', '<leader>fg', ':lua require("telescope.builtin").live_grep()<CR>', opt)
+map('n', '<leader>fb', ':lua require("telescope.builtin").buffers()<CR>', opt)
+map('n', '<leader>fh', ':lua require("telescope.builtin").help_tags()<CR>', opt)
 
 return M

@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- make nvim smoother
+opt.timeoutlen = 1000
+opt.ttimeoutlen = 0
+
 -- indent
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -13,8 +17,10 @@ opt.termguicolors = true
 opt.number = true
 opt.relativenumber = true
 opt.list = true
-opt.listchars = 'trail:·,precedes:«,extends:»,eol:↲,tab:▸\\ '
+opt.listchars = 'trail:·,precedes:«,extends:»,eol:↴,tab:▸\\ '
 opt.showmatch = true
+opt.cursorline = true
+-- opt.cursorcolumn = true
 
 -- disable builtin neovim plugins
 vim.g.loaded_gzip = 0
@@ -48,11 +54,18 @@ vim.api.nvim_command([[
 autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]])
 
+vim.cmd([[
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
+]])
+
 -- make undo available even after closing window
 opt.undodir = '/home/nabak/.local/share/nvim/undo'
 opt.undofile = true
 
--- bindings
+--[[ -- bindings
 vim.g.mapleader = ' '
 local o = {silent = true, noremap = true}
 local map = vim.api.nvim_set_keymap
@@ -78,4 +91,4 @@ map('n', '<leader>/', ':set nohls<cr>', o)
 map('', '<C-j>', '<C-W>j', o)
 map('', '<C-k>', '<C-W>k', o)
 map('', '<C-h>', '<C-W>h', o)
-map('', '<C-l>', '<C-W>l', o)
+map('', '<C-l>', '<C-W>l', o) ]]

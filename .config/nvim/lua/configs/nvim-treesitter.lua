@@ -1,17 +1,38 @@
---[[ local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.pug = {
-  install_info = {
-    url = "~/tree-sitter-pug", -- local path or git repo
-    files = {"src/parser.c", "src/scanner.cc" }
-  },
-  filetype = "pug", -- if filetype does not agrees with parser name
-  used_by = {"vue"} -- additional filetypes that use this parser
-} ]]
-
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = 'maintained',
+  ensure_installed = {
+    "bash",
+    "comment",
+    "css",
+    "dot",
+    "html",
+    "javascript",
+    "json",
+    "json5",
+    "lua",
+    "make",
+    "markdown",
+    "php",
+    "pug",
+    "python",
+    "regex",
+    "scss",
+    "toml",
+    "typescript",
+    "vim",
+    "vue",
+    "yaml"
+  },
   indent = {
     enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      scope_incremental = 'grc',
+      node_decremental = 'grm'
+    }
   },
   highlight = {
     enable = true,

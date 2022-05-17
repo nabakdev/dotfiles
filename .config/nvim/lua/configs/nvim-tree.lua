@@ -2,15 +2,20 @@ local g = vim.g
 local opt = {silent = true, noremap = true}
 local map = vim.api.nvim_set_keymap
 
-g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '__pycache__'}
-g.nvim_tree_gitignore = 1
-g.nvim_tree_auto_open = 1
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_hide_dotfiles = 1
+-- g.nvim_tree_ignore = {'.git', 'node_modules', '.cache', '__pycache__'}
+-- g.nvim_tree_gitignore = 1
+-- g.nvim_tree_auto_open = 1
+-- g.nvim_tree_indent_markers = 1
+-- g.nvim_tree_hide_dotfiles = 1
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_root_folder_modifier = ":t"
 g.nvim_tree_add_trailing = 1
+--[[ g.nvim_tree_special_files = {
+  "README.md"= 1,
+  "Makefile"= 1,
+  "MAKEFILE"= 1
+} ]]
 g.nvim_tree_show_icons = {
   git = 1,
   folders = 1,
@@ -42,16 +47,26 @@ g.nvim_tree_icons = {
 require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
+  open_on_setup = true,
   ignore_ft_on_setup = {},
-  auto_close = false,
-  update_to_buff_dir = {
+  -- auto_close = false,
+  --[[ update_to_buff_dir = {
     enable = true,
     auto_open = true,
-  },
+  }, ]]
   hijack_cursor = false,
   update_cwd = false,
-  lsp_diagnostic = true,
+  -- lsp_diagnostic = true,
+  diagnostics = {
+    enable = true,
+    show_on_dirs = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
   update_focused_file = {
     enable = false,
     update_cwd = false,
@@ -64,13 +79,32 @@ require'nvim-tree'.setup {
   view = {
     width = 30,
     side = 'left',
-    auto_resize = true,
+    -- auto_resize = true,
   },
-  mappings = {
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      }
+    }
+  },
+  filters = {
+    custom = {
+      '.git',
+      'node_modules',
+      '.cache',
+      '__pycache__'
+    },
+    dotfiles = true
+  }
+  --[[ mappings = {
     custom_only = false,
     list = {
     }
-  }
+  } ]]
 }
 
 -- MAPPINGS
