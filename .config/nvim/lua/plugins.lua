@@ -112,13 +112,6 @@ require('packer').startup({function(use)
     end
 	}
 
-  -- Better syntax highlighting
-  --[[ use 'posva/vim-vue'
-  use 'digitaltoad/vim-pug'
-  use 'pangloss/vim-javascript'
-  use 'othree/html5.vim'
-  use 'StanAngeloff/php.vim' ]]
-
   use {
     'ur4ltz/surround.nvim',
     config = [[ require'surround'.setup { mapping_style = 'surround'} ]]
