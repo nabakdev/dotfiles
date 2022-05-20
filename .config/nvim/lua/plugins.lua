@@ -45,10 +45,11 @@ require('packer').startup({function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    -- event = 'BufRead',
+    event = 'BufRead',
     run = ':TSUpdate',
 		config = [[require'configs.nvim-treesitter']],
   }
+
   use {
     'kyazdani42/nvim-tree.lua',
     wants = { 'nvim-web-devicons' },
@@ -116,6 +117,15 @@ require('packer').startup({function(use)
     'ur4ltz/surround.nvim',
     config = [[ require'surround'.setup { mapping_style = 'surround'} ]]
   }
+
+  -- use {
+    -- 'startup-nvim/startup.nvim',
+    -- requires = {
+      -- 'nvim-telescope/telescope.nvim',
+      -- 'nvim-lua/plenary.nvim'
+    -- },
+    -- config = [[ require'configs.startup' ]]
+  -- }
 
 end,
 config = {
