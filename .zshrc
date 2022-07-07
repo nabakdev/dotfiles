@@ -72,6 +72,7 @@ ZSH_CUSTOM=$HOME/.local/share/oh-my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  # zsh-vi-mode
   colorize
   fzf
   git
@@ -87,6 +88,7 @@ bindkey '^ ' autosuggest-accept
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export HISTCONTROL=ignoreboth:erasedups
@@ -95,6 +97,7 @@ export QT_QPA_PLATFORM=wayland
 export npm_config_prefix="$HOME/.local"
 export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 if [ -x "$(command -v yarn)" ] && [ -d "$(yarn global bin)" ] ; then
     PATH="$PATH:$(yarn global bin)"
@@ -128,6 +131,7 @@ alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias xz='xz -T $(nproc)'
 alias ydl='youtube-dl --cookies /home/nabak/.youtube-cookies.txt -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail'
 # --embed-thumbnail 
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -137,4 +141,5 @@ fi
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 . /usr/share/LS_COLORS/dircolors.sh

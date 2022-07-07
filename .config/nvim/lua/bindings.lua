@@ -7,11 +7,15 @@ map('i', 'jk', '<ESC>', opt)
 map('v', 'JK', '<ESC>', opt)
 
 -- Quick save
-map('n', '<leader>w', ':w<cr>', opt)
+map('n', '<C-s>', ':w<cr>', opt)
+
+map('n', '<leader>y', '<BS>"*y', opt) -- Copy to clipboard
+map('n', '<leader>p', '"*p', opt) -- Paste from clipboard
+map('i', '<C-v>', '<C-r>+', opt) -- Paste from clipboard
 
 -- Quit
-map('n', '<leader>q', ':q<cr>', opt)
-map('n', '<leader>Q', ':qa<cr>', opt)
+map('n', '<C-q>', ':q<cr>', opt)
+map('n', '<C-Q>', ':qa<cr>', opt)
 
 -- Save & Quit
 map('n', '<leader>x', ':x<cr>', opt)
@@ -24,3 +28,6 @@ map('', '<C-j>', '<C-W>j', opt)
 map('', '<C-k>', '<C-W>k', opt)
 map('', '<C-h>', '<C-W>h', opt)
 map('', '<C-l>', '<C-W>l', opt)
+
+-- quick save
+map('i', '<C-s>', '<ESC>:w<cr>', opt)

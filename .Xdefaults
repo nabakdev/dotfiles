@@ -8,42 +8,41 @@ Xft.rgba: rgb
 !! Colorscheme
 
 ! special
-*.foreground: #93a1a1
-!*.background: #141c21
-*.background: #1e222a
-*.cursorColor: #afbfbf
+*.foreground: #a0a8b7
+*.background: #1f2329
+*.cursorColor: #5C6370
 
 ! black
-*.color0: #263640
-*.color8: #4a697d
+*.color0: #1f2329
+*.color8: #30363f
 
 ! red
-*.color1: #d12f2c
-*.color9: #fa3935
+*.color1: #8b3434
+*.color9: #e55561
 
 ! green
-*.color2: #819400
-*.color10: #a4bd00
+*.color2: #689944
+*.color10: #8ebd6b
 
 ! yellow
-*.color3: #b08500
-*.color11: #d9a400
+*.color3: #e2b86b
+*.color11: #e8c88c
 
 ! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
+*.color4: #4fa6ed
+*.color12: #61afef
 
 ! magenta
-*.color5: #696ebf
-*.color13: #8086e8
+*.color5: #7e3992
+*.color13: #bf68d9
 
 ! cyan
-*.color6: #289c93
-*.color14: #33c5ba
+*.color6: #266269
+*.color14: #48b0bd
 
 ! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+*.color7: #535965
+*.color15: #7a818e
 
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
@@ -92,15 +91,22 @@ dmenu.selbackground:	    #bf616a
 dmenu.foreground:	        #d8dee9
 
 !! Copy Paste & Other Extensions
-! URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 ! URxvt.copyCommand: xclip -i -selection clipboard
 ! URxvt.pasteCommand: xclip -o -selection clipboard
 ! URxvt.keysym.M-c: perl:clipboard:copy
 ! URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.url-launcher: /usr/bin/xdg-open
 ! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! URxvt.keysym.M-Escape: perl:keyboard-select:activate
 ! URxvt.keysym.M-s: perl:keyboard-select:search
 ! URxvt.keysym.M-u: perl:url-select:select_next
-! URxvt.urlLauncher: firefox
-! URxvt.underlineURLs: true
+URxvt.urlLauncher: firefox-developer-edition
+URxvt.underlineURLs: true
 ! URxvt.urlButton: 1
+
+! Urxvt tabbed Colors
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0

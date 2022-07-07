@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
     "make",
     "markdown",
     "php",
+    "phpdoc",
     "pug",
     "python",
     "regex",
@@ -36,8 +37,8 @@ require'nvim-treesitter.configs'.setup {
   },
   highlight = {
     enable = true,
-    disable = {},
-    --disable = {"pug"},
+    -- disable = {},
+    -- disable = {"php"},
     additional_vim_regex_highlighting = false
   }
 }

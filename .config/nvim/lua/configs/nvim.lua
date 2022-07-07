@@ -20,6 +20,9 @@ opt.list = true
 opt.listchars = 'trail:·,precedes:«,extends:»,eol:↴,tab:▸\\ '
 opt.showmatch = true
 opt.cursorline = true
+
+-- copy clipboard to system
+opt.clipboard = 'unnamedplus'
 -- opt.cursorcolumn = true
 
 -- disable builtin neovim plugins
@@ -54,41 +57,13 @@ vim.api.nvim_command([[
 autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]])
 
-vim.cmd([[
-augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
+-- vim.cmd([[
+-- augroup packer_user_config
+  -- autocmd!
+  -- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+-- augroup end
+-- ]])
 
 -- make undo available even after closing window
 opt.undodir = '/home/nabak/.local/share/nvim/undo'
 opt.undofile = true
-
---[[ -- bindings
-vim.g.mapleader = ' '
-local o = {silent = true, noremap = true}
-local map = vim.api.nvim_set_keymap
-
--- ESC
-map('i', 'jk', '<ESC>', o)
-map('v', 'hl', '<ESC>', o)
-
--- Quick save
-map('n', '<leader>w', ':w<cr>', o)
-
--- Quit
-map('n', '<leader>q', ':q<cr>', o)
-map('n', '<leader>Q', ':qa<cr>', o)
-
--- Save & Quit
-map('n', '<leader>x', ':x<cr>', o)
-
--- remove search highlight
-map('n', '<leader>/', ':set nohls<cr>', o)
-
--- navigate between windows
-map('', '<C-j>', '<C-W>j', o)
-map('', '<C-k>', '<C-W>k', o)
-map('', '<C-h>', '<C-W>h', o)
-map('', '<C-l>', '<C-W>l', o) ]]
