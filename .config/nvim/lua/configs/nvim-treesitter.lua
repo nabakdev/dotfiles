@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "bash",
+    --[[ "bash",
     "comment",
     "css",
     "dot",
@@ -21,12 +21,14 @@ require'nvim-treesitter.configs'.setup {
     "typescript",
     "vim",
     "vue",
-    "yaml"
+    "yaml" ]]
   },
+  auto_install = true,
   indent = {
-    enable = true
+    enable = true,
+    disable = { 'yaml', 'python' }
   },
-  incremental_selection = {
+  --[[ incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = 'gnn',
@@ -34,11 +36,22 @@ require'nvim-treesitter.configs'.setup {
       scope_incremental = 'grc',
       node_decremental = 'grm'
     }
+  }, ]]
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      typescript = '// %s',
+      pug = '// %s',
+      vue = '<!-- %s -->',
+      html = '<!-- %s -->',
+      json = ''
+    }
   },
   highlight = {
     enable = true,
     -- disable = {},
-    -- disable = {"php"},
+    disable = {"latex"},
     additional_vim_regex_highlighting = false
   }
 }

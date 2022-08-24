@@ -24,8 +24,8 @@ map('n', '<leader>x', ':x<cr>', opt)
 map('n', '<leader>/', ':set nohls<cr>', opt)
 
 -- navigate between windows
-map('', '<C-j>', '<C-W>j', opt)
-map('', '<C-k>', '<C-W>k', opt)
+map('', '<C-J>', '<C-W>j', opt)
+map('', '<C-K>', '<C-W>k', opt)
 map('', '<C-h>', '<C-W>h', opt)
 map('', '<C-l>', '<C-W>l', opt)
 

@@ -13,7 +13,7 @@ require('packer').startup({function(use)
       { 'hrsh7th/cmp-path', after = { 'nvim-cmp' } },
       { 'hrsh7th/cmp-nvim-lsp-signature-help', after = { 'nvim-cmp' } },
     },
-    event = { 'InsertEnter', 'CmdlineEnter' },
+    -- event = { 'InsertEnter', 'CmdlineEnter' },
     after = { 'lspkind-nvim' },
 		config = [[require'configs.nvim-cmp']],
   }
@@ -45,7 +45,7 @@ require('packer').startup({function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufRead',
+    event = 'BufReadPost',
     run = ':TSUpdate',
 		config = [[require'configs.nvim-treesitter']],
   }
@@ -59,7 +59,7 @@ require('packer').startup({function(use)
 
   use {
     'b3nj5m1n/kommentary',
-		config = [[ require'kommentary.config'.use_extended_mappings() ]],
+		config = [[ require'configs.kommentary' ]],
   }
 
   use {
@@ -76,7 +76,7 @@ require('packer').startup({function(use)
   use {
     'windwp/nvim-autopairs',
     after = 'nvim-cmp',
-    event = { 'InsertCharPre' },
+    -- event = { 'InsertCharPre' },
 		config = [[require'configs.nvim-autopairs']],
   }
 
