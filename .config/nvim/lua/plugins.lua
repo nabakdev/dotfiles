@@ -4,6 +4,11 @@ require('packer').startup({function(use)
   use 'onsails/lspkind-nvim'
 
   use {
+    'glepnir/dashboard-nvim',
+		config = [[require'configs.dashboard']],
+  }
+
+  use {
     'hrsh7th/nvim-cmp',
     requires = {
       { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },

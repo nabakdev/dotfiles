@@ -33,6 +33,18 @@ require('telescope').setup {
   pickers = {
     find_files = {
       find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' }
+    },
+    live_grep = {
+      find_command = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '-u'
+      }
     }
   }
 }
