@@ -3,6 +3,7 @@
     "position": "top",
     "modules-left": [
       "sway/workspaces",
+      "sway/scratchpad",
       "sway/mode",
       "tray",
       "custom/updates"
@@ -20,6 +21,13 @@
     ],
     "tray": {
       "icon-size": 24,
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
     "sway/window": {
       "format": "<span style=\"italic\">{}</span>",

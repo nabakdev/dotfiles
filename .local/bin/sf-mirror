@@ -1,0 +1,38 @@
+#!/bin/env bash
+
+mirrors=(
+  altushost-swe
+  cfhcable
+  cytranet
+  deac-ams
+  deac-fra
+  deac-riga
+  excellmedia
+  freefr
+  gigenet
+  gox
+  ixpeering
+  jaist
+  kumisystems
+  nav
+  nchc
+  netcologne
+  netix
+  onboardcloud
+  phoenixmap
+  pilotfiber
+  razaoinfo
+  sinalbr
+  sonix
+  tenet
+  udomain
+  ufpr
+  versaweb
+  yer
+  )
+
+for i in ${!mirrors[@]}; do
+  mirror="${mirrors[$i]}"
+  # ping -c5 -4 -W 3 ${mirror}.dl.sourceforge.net | tail -n3
+  ping -4 -c5 -W3 ${mirror}.dl.sourceforge.net | tail -n3 | tr '\n' ' ' | awk -F' ' '{print $2, $11, $19}' | awk -F'/' '{print $1, $2}' | awk -F' ' '{print $1 "\t" $2, $4}'
+done

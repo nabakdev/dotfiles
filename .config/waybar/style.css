@@ -53,6 +53,12 @@
   margin-right: 8px;
 }
 
+#scratchpad {
+  color: #cffafe;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
 #pulseaudio {
   color: #0fb9b1;
   padding-right: 14px;
