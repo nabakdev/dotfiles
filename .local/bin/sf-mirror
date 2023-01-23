@@ -34,5 +34,6 @@ mirrors=(
 for i in ${!mirrors[@]}; do
   mirror="${mirrors[$i]}"
   # ping -c5 -4 -W 3 ${mirror}.dl.sourceforge.net | tail -n3
-  ping -4 -c5 -W3 ${mirror}.dl.sourceforge.net | tail -n3 | tr '\n' ' ' | awk -F' ' '{print $2, $11, $19}' | awk -F'/' '{print $1, $2}' | awk -F' ' '{print $1 "\t" $2, $4}'
+  echo -n $mirror
+  ping -4 -c5 -W3 ${mirror}.dl.sourceforge.net | tail -n3 | tr '\n' ' ' | awk -F' ' '{print $2, $11, $19}' | awk -F'/' '{print $1, $2}' | awk -F' ' '{print "\t" $2, $4}'
 done
