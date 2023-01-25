@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term urxvt 
+set $term kitty 
 seat seat0 xcursor_theme Capitaine-Cursors 24
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
