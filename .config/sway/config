@@ -170,6 +170,7 @@ output * bg $HOME/.wallpapers/neon.png fill
     bindsym $mod+a focus parent
 # screenshot
 bindsym Shift+Print exec grim -t png "${HOME}/Pictures/screenshots/screenshot-`date +%F-%T`.png"
+bindsym $mod+Shift+p exec grim -t png "${HOME}/Pictures/screenshots/screenshot-`date +%F-%T`.png"
     
 # capture the specified screen area to clipboard    
 bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy    
