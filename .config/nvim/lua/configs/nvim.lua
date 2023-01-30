@@ -1,4 +1,5 @@
 local opt = vim.opt
+local home = os.getenv('HOME')
 
 -- make nvim smoother
 opt.timeoutlen = 1000
@@ -26,16 +27,16 @@ opt.clipboard = 'unnamedplus'
 -- opt.cursorcolumn = true
 
 -- disable builtin neovim plugins
-vim.g.loaded_gzip = 0
-vim.g.loaded_tar = 0
-vim.g.loaded_tarPlugin = 0
-vim.g.loaded_zipPlugin = 0
-vim.g.loaded_2html_plugin = 0
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
-vim.g.loaded_matchit = 0
-vim.g.loaded_matchparent = 0
-vim.g.loaded_spec = 0
+vim.g.loaded_gzip = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_matchit = 0
+-- vim.g.loaded_matchparent = 0
+-- vim.g.loaded_spec = 0
 
 -- enable smartcase (set to ignorecase if lowercase)
 opt.ignorecase = true
@@ -65,5 +66,5 @@ autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' &
 -- ]])
 
 -- make undo available even after closing window
-opt.undodir = '/home/nabak/.local/share/nvim/undo'
+opt.undodir = home .. '/.local/share/nvim/undo'
 opt.undofile = true

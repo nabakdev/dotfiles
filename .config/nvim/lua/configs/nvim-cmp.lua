@@ -11,7 +11,13 @@ local luasnip = require('luasnip')
 
 cmp.setup({
   preselect = cmp.PreselectMode.None,
-  -- menu = {nvim_lsp = "[lsp]", buffer = "[buf]", nvim_lua = "[api]", path = "[path]", luasnip = "[snip]", jira_issues = "[jira]"},
+  menu = {
+    nvim_lsp = "[LSP]",
+    buffer = "[Buffer]",
+    nvim_lua = "[Lua]",
+    path = "[Path]",
+    luasnip = "[LuaSnip]",
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -47,15 +53,16 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip', option = { use_show_condition = false } },
-    { name = 'path' },
-    { name = 'buffer' },
     { name = "nvim_lsp_signature_help" },
+    { name = 'luasnip' },
+    { name = 'path' },
+  }, {
+    { name = 'buffer' },
   }),
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text', -- show only symbol annotations
-      --[[ symbol_map = {
+      mode = 'symbol_text',
+      symbol_map = {
         Text = "",
         Method = "",
         Function = "",
@@ -81,7 +88,7 @@ cmp.setup({
         Event = "",
         Operator = "",
         TypeParameter = ""
-      }, ]]
+      },
     })
   }
 })
@@ -104,3 +111,16 @@ cmp.setup.cmdline(':', {
     })
 })
 
+--[[ Prequire = function(module)
+	local ok, mod = pcall(require, module)
+	if ok then
+		return mod
+	end
+end
+
+local cmp_nvim_lsp = Prequire("cmp_nvim_lsp")
+
+if cmp_nvim_lsp then
+  capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+end
+ ]]

@@ -11,7 +11,6 @@ require('packer').startup({function(use)
   use {
     'hrsh7th/nvim-cmp',
     requires = {
-      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
       { 'saadparwaiz1/cmp_luasnip', after = { 'cmp-nvim-lsp' } },
       { 'hrsh7th/cmp-buffer', after = { 'nvim-cmp' } },
       { 'hrsh7th/cmp-cmdline', after = { 'nvim-cmp' } },
@@ -19,9 +18,11 @@ require('packer').startup({function(use)
       { 'hrsh7th/cmp-nvim-lsp-signature-help', after = { 'nvim-cmp' } },
     },
     -- event = { 'InsertEnter', 'CmdlineEnter' },
-    after = { 'lspkind-nvim' },
+    after = { 'lspkind-nvim', 'LuaSnip' },
 		config = [[require'configs.nvim-cmp']],
   }
+
+  use 'hrsh7th/cmp-nvim-lsp'
 
   use {
     'L3MON4D3/LuaSnip',
@@ -30,9 +31,21 @@ require('packer').startup({function(use)
   }
 
 	use {
-    'williamboman/nvim-lsp-installer',
-    requires = 'neovim/nvim-lspconfig',
-		config = [[require'configs.lsp']],
+    'williamboman/mason.nvim',
+		config = [[require'configs.mason']],
+  }
+
+	use {
+    'williamboman/mason-lspconfig.nvim',
+    -- after = 'mason',
+		config = [[require('mason-lspconfig').setup()]],
+		-- config = [[require'configs.mason-lspconfig']],
+  }
+
+	use {
+    'neovim/nvim-lspconfig',
+    -- after = 'mason-lspconfig',
+		config = [[require'configs.nvim-lspconfig']],
   }
 
 	use 'editorconfig/editorconfig-vim'
@@ -50,14 +63,14 @@ require('packer').startup({function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufReadPost',
+    -- event = 'BufReadPost',
     run = ':TSUpdate',
 		config = [[require'configs.nvim-treesitter']],
   }
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    wants = { 'nvim-web-devicons' },
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
     keys = { '<leader>\\' },
 		config = [[ require'configs.nvim-tree' ]],
   }
@@ -94,7 +107,7 @@ require('packer').startup({function(use)
   use {
     'akinsho/bufferline.nvim',
     tag = 'v2.*',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = 'nvim-tree/nvim-web-devicons',
 		config = [[require'configs.bufferline']],
   }
 
@@ -102,7 +115,7 @@ require('packer').startup({function(use)
     'glepnir/galaxyline.nvim',
     branch = 'main',
 		config = [[require'configs.statusline']],
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'nvim-tree/nvim-web-devicons', opt = true}
   }
 
   use {
@@ -122,15 +135,6 @@ require('packer').startup({function(use)
     'ur4ltz/surround.nvim',
     config = [[ require'surround'.setup { mapping_style = 'surround'} ]]
   }
-
-  -- use {
-    -- 'startup-nvim/startup.nvim',
-    -- requires = {
-      -- 'nvim-telescope/telescope.nvim',
-      -- 'nvim-lua/plenary.nvim'
-    -- },
-    -- config = [[ require'configs.startup' ]]
-  -- }
 
 end,
 config = {
