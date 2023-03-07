@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buffopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, buffopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buffopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, buffopts)
+  vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, buffopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, buffopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, buffopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -40,20 +40,29 @@ local servers = {
   'tailwindcss',
   'tsserver',
   'pyright',
-  'sumneko_lua',
+  'lua_ls',
   'vimls',
   'volar',
   'yamlls',
 }
 
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+local lspconfig = require('lspconfig')
+
 for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp == 'volar' then
+    require('lspconfig')[lsp].setup {
+      filetypes = {'vue'},
+      -- filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 

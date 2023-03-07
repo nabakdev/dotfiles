@@ -10,14 +10,7 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
 cmp.setup({
-  preselect = cmp.PreselectMode.None,
-  menu = {
-    nvim_lsp = "[LSP]",
-    buffer = "[Buffer]",
-    nvim_lua = "[Lua]",
-    path = "[Path]",
-    luasnip = "[LuaSnip]",
-  },
+  -- preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -62,6 +55,14 @@ cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol_text',
+      maxwidth = 50,
+      menu = {
+        nvim_lsp = "[LSP]",
+        buffer = "[Buffer]",
+        nvim_lua = "[Lua]",
+        path = "[Path]",
+        luasnip = "[LuaSnip]",
+      },
       symbol_map = {
         Text = "",
         Method = "",

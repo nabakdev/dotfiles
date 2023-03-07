@@ -100,7 +100,7 @@ require('packer').startup({function(use)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
+    -- event = 'BufRead',
 		config = [[require'configs.indent-blankline']],
   }
 
@@ -126,7 +126,20 @@ require('packer').startup({function(use)
 	use {
 		'navarasu/onedark.nvim',
 		config = function()
-      require'onedark'.setup { style = 'darker' }
+      require('onedark').setup {
+        style = 'darker',
+        -- colors = {
+          -- bright_orange = "#ff8800",    -- define a new color
+          -- green = '#00ffaa',            -- redefine an existing color
+        -- },
+        -- highlights = {
+          -- ["@keyword"] = {fg = '$green'},
+          -- ["@string"] = {fg = '$bright_orange'},
+          -- ["@function"] = {fg = '#0000ff', sp = '$cyan', fmt = 'underline,italic'},
+          -- ["@function.builtin"] = {fg = '#0059ff'}
+        -- }
+      }
+      -- require'onedark'.setup { style = 'darker' }
       require'onedark'.load()
     end
 	}
@@ -134,6 +147,14 @@ require('packer').startup({function(use)
   use {
     'ur4ltz/surround.nvim',
     config = [[ require'surround'.setup { mapping_style = 'surround'} ]]
+  }
+
+  use 'lambdalisue/suda.vim'
+
+  use {
+    'akinsho/git-conflict.nvim',
+    tag = "*",
+    config = [[ require'git-conflict'.setup() ]]
   }
 
 end,

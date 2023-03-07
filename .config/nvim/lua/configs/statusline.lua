@@ -30,13 +30,34 @@ local colors = {
     dark_purple = "#c882e7",
     teal = "#519ABA",
     orange = "#fca2aa",
-    cyan = "#a3b8ef",
+    cyan = "#06b6d4",
     statusline_bg = "#22262e",
     lightbg = "#2d3139",
     lightbg2 = "#262a32"
 }
 
 gls.left[1] = {
+    FirstElement = {
+        provider = function()
+            return "▋"
+        end,
+        highlight = {colors.cyan, colors.cyan}
+    }
+}
+
+gls.left[2] = {
+    current_dir = {
+        provider = function()
+            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+            return "  " .. dir_name .. " "
+        end,
+        highlight = {colors.black, colors.cyan},
+        separator = " ",
+        separator_highlight = {colors.cyan, colors.lightbg}
+    }
+}
+
+--[[ gls.left[1] = {
     FirstElement = {
         provider = function()
             return "▋"
@@ -54,7 +75,7 @@ gls.left[2] = {
         separator = "  ",
         separator_highlight = {colors.nord_blue, colors.lightbg}
     }
-}
+} ]]
 
 gls.left[3] = {
     FileIcon = {
@@ -66,23 +87,11 @@ gls.left[3] = {
 
 gls.left[4] = {
     FileName = {
-        provider = {"FileName"},
+        provider = {"FilePath"},
         condition = condition.buffer_not_empty,
         highlight = {colors.white, colors.lightbg},
         separator = " ",
         separator_highlight = {colors.lightbg, colors.lightbg2}
-    }
-}
-
-gls.left[5] = {
-    current_dir = {
-        provider = function()
-            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "  " .. dir_name .. " "
-        end,
-        highlight = {colors.grey_fg2, colors.lightbg2},
-        separator = " ",
-        separator_highlight = {colors.lightbg2, colors.statusline_bg}
     }
 }
 
