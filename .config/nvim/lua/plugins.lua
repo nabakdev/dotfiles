@@ -123,6 +123,8 @@ require('packer').startup({function(use)
 		config = [[require'colorizer'.setup()]],
   }
 
+  use 'wakatime/vim-wakatime'
+
 	use {
 		'navarasu/onedark.nvim',
 		config = function()
