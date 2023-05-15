@@ -137,6 +137,9 @@ alias ydl='youtube-dl --cookies /home/nabak/.youtube-cookies.txt -f "bestaudio/b
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias get_idf='. /opt/esp-idf/export.sh'
 
+# nvim plugins
+alias nvim-plugins="nvim ~/.config/nvim/lua/plugins.lua"
+
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR

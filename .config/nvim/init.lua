@@ -1,8 +1,2 @@
-require 'configs/nvim'
-require 'plugins'
-require 'bindings'
-
-vim.api.nvim_command([[
-autocmd BufNewFile  *.vue 0r ~/.config/nvim/snippets/snippet.vue
-]])
-
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
