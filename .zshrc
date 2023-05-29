@@ -139,6 +139,7 @@ alias get_idf='. /opt/esp-idf/export.sh'
 
 # nvim plugins
 alias nvim-plugins="nvim ~/.config/nvim/lua/plugins.lua"
+alias date-iso='date +"%Y-%m-%dT%H:%M:%S%z"'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
