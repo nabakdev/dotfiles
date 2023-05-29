@@ -1,4 +1,4 @@
-## Requirements Packages
+## Packages
 
 | App          | Package                                           |
 | :----------- | :------------------------------------------------ |
@@ -22,10 +22,11 @@ git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakd
 ![image 1](.screenshots/ss-1.png)
 ![image 2](.screenshots/ss-2.png)
 
-##### Optionals cool shell command wrapper
+###### Optionals cool shell command wrapper
 
 - [bat](https://github.com/sharkdp/bat)
 - [prettyping](https://github.com/denilsonsa/prettyping)
+- [lazygit](https://github.com/jesseduffield/lazygit.git)
 
 ###### References
 
