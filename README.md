@@ -19,8 +19,10 @@ git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakd
 
 ## Screenshots
 
-![image 1](.screenshots/ss-1.png)
-![image 2](.screenshots/ss-2.png)
+![Wallpaper](.screenshots/ss-1.png)
+![Neovim Dashboard](.screenshots/ss-2.png)
+![Neovim Editing](.screenshots/ss-3.png)
+![Ranger](.screenshots/ss-4.png)
 
 ###### Optionals cool shell command wrapper
 
