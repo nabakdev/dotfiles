@@ -107,10 +107,6 @@ export ESPIDF=/opt/esp-idf
 export XDG_CURRENT_DESKTOP=XFCE
 export GTK_THEME=Fleon:dark
 
-if [ -x "$(command -v yarn)" ] && [ -d "$(yarn global bin)" ] ; then
-    PATH="$PATH:$(yarn global bin)"
-fi
-
 if [ -d "$HOME/.config/composer/vendor/bin" ] ; then
     PATH="$PATH:$HOME/.config/composer/vendor/bin"
 fi
@@ -126,19 +122,19 @@ alias ip='ip -color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A'
 alias ll='ls -l'
-alias pg='prettyping --nolegend'
+alias pp='prettyping --nolegend'
 alias dl="axel -4 -n4"
 alias zshrc="${=EDITOR} ~/.zshrc"
 alias nvimrc="${=EDITOR} ~/.config/nvim/init.lua"
-alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfile="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias xz='xz -T $(nproc)'
-alias ydl='youtube-dl --cookies /home/nabak/.youtube-cookies.txt -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail'
+alias ydl="youtube-dl --cookies $HOME/.youtube-cookies.txt -f \"bestaudio/best\" -ciw -o \"%(title)s.%(ext)s\" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail"
 # --embed-thumbnail 
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias get_idf='. /opt/esp-idf/export.sh'
 
 # nvim plugins
-alias nvim-plugins="nvim ~/.config/nvim/lua/plugins.lua"
+alias nvim-plugins="nvim $HOME/.config/nvim/lua/plugins.lua"
 alias date-iso='date +"%Y-%m-%dT%H:%M:%S%z"'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
@@ -150,5 +146,6 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/fzf/completion.zsh
 . /usr/share/LS_COLORS/dircolors.sh
 alias lg='lazygit'
