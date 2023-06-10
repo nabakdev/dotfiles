@@ -132,10 +132,14 @@ alias ydl="youtube-dl --cookies $HOME/.youtube-cookies.txt -f \"bestaudio/best\"
 # --embed-thumbnail 
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias get_idf='. /opt/esp-idf/export.sh'
+alias lg='lazygit'
 
 # nvim plugins
 alias nvim-plugins="nvim $HOME/.config/nvim/lua/plugins.lua"
 alias date-iso='date +"%Y-%m-%dT%H:%M:%S%z"'
+
+# Changing default telegram file browser
+alias telegram="XDG_CURRENT_DESKTOP=XFCE telegram-desktop"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -147,5 +151,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/fzf/completion.zsh
+source /usr/share/icons-in-terminal/icons_bash.sh
 . /usr/share/LS_COLORS/dircolors.sh
-alias lg='lazygit'

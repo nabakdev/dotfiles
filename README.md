@@ -29,6 +29,7 @@ git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakd
 - [bat](https://github.com/sharkdp/bat)
 - [prettyping](https://github.com/denilsonsa/prettyping)
 - [lazygit](https://github.com/jesseduffield/lazygit.git)
+- [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
 
 ###### References
 
