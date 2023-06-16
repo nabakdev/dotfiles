@@ -21,9 +21,6 @@ class Snow(ColorScheme):
             if context.directory:
                 attr |= bold
                 fg += BRIGHT
-            if context.line_number and not context.selected:
-                attr |= bold
-                fg += BRIGHT
 
         elif context.highlight:
             attr |= reverse
