@@ -14,6 +14,13 @@ return {
     local luasnip = require("luasnip")
     local cmp = require("cmp")
 
+    opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+
+    opts.window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    }
+
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
