@@ -1,15 +1,15 @@
 {
   "layer": "top",
     "position": "top",
-    "margin-bottom": 0,
     "modules-left": [
-      "clock",
-      "hyprland/workspaces",
-      "custom/updates",
+      "sway/workspaces",
+      "sway/scratchpad",
+      "sway/mode",
       "tray",
+      "custom/updates"
       ],
     "modules-center": [
-      "hyprland/window",
+        "clock"
       ],
     "modules-right": [
       "network",
@@ -21,41 +21,31 @@
     ],
     "tray": {
       "icon-size": 24,
-      "spacing": 10
     },
-    "hyprland/window": {
-      "format": " {}",
-      "rewrite": {
-          "(\\d\\. )?(.*) - Chromium": "<span color=\"#4285F4\"></span>  $2 ",
-          "nvim (.*)": "<span color=\"#57A143\"></span>  $1",
-          "nvim": "<span color=\"#57A143\">  Neovim</span> ",
-          "ranger(.*)": "<span color=\"#ffffff\"></span>  $1",
-          //"kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
-          "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
-      },
-      "separate-outputs": false
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
-    "hyprland/submap": {
-      "format": "✌️ {}",
-      "max-length": 8,
-      "tooltip": true
+    "sway/window": {
+      "format": "<span style=\"italic\">{}</span>",
+      "max-length": 50
     },
-    "hyprland/workspaces": {
-      "format": "{icon}",
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "format": "{icon} {name}",
       "format-icons": {
-        "1": "󰲠",
-        "2": "󰲢",
-        "3": "󰲤",
-        "4": "󰲦",
-        "5": "󰲨",
-        "6": "󰲪",
-        "7": "󰲬",
-        "8": "󰲮",
-        "9": "󰲰",
-        "10": "󰿬",
-        "-99": "",
-        "active": "",
-        "default": ""
+        "1": " ",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
+        "urgent": " ",
+        "focused": " ",
+        "default": " "
       }
     },
     "network": {
@@ -81,10 +71,10 @@
     "custom/powermenu": {
       "format": "",
       "tooltip": false,
-      "on-click": "exec wlogout -p layer-shell",
+      "on-click": "exec $HOME/.config/rofi/powermenu.sh",
     },
     "custom/updates": {
-      "format": "<span color=\"#61afef\"></span> {}",
+      "format": " {}",
       "tooltip": false,
       "interval": 3600,
       "exec": "exec $HOME/.config/waybar/checkupdate.sh"
@@ -108,9 +98,7 @@
     "clock": {
       //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
       "format": "{:%H:%M}",
-      "interval": 60,
-      "tooltip": true,
-      "tooltip-format": "{:%d %B %H:%M}"
+      "interval": 60
     }
 }
 

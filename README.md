@@ -1,15 +1,35 @@
 ## Packages
 
-| App          | Package                                           |
-| :----------- | :------------------------------------------------ |
-| Shell        | [Zsh](https://wiki.archlinux.org/title/Zsh)       |
-| WM / DE      | [Sway](https://wiki.archlinux.org/title/sway)     |
-| Status Bar   | [Waybar](https://github.com/Alexays/Waybar)       |
-| Editor       | [Neovim](https://wiki.archlinux.org/title/Neovim) |
-| Terminal     | [Kitty](https://wiki.archlinux.org/title/Kitty)   |
-| File Manager | [Ranger](https://wiki.archlinux.org/title/Ranger) |
+| App                  | Package                                                 |
+| :------------------- | :------------------------------------------------------ |
+| Shell                | [Zsh (oh-my-zsh)](https://wiki.archlinux.org/title/Zsh) |
+| WM / DE / Compositor | [Hyprland](https://hyprland.org/)                       |
+| Status Bar           | [Waybar](https://github.com/Alexays/Waybar)             |
+| Editor               | [Neovim](https://wiki.archlinux.org/title/Neovim)       |
+| Terminal             | [Kitty](https://wiki.archlinux.org/title/Kitty)         |
+| File Manager         | [Ranger](https://wiki.archlinux.org/title/Ranger)       |
+
+# Packages
+
+- [swaylock-effects](https://github.com/mortie/swaylock-effects) : fork of swaylock with fancy effects
+- [Sweet](https://github.com/EliverLara/Sweet) : Light and dark colorful Gtk3.20+ theme
+- [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors) : An x-cursor theme inspired by macOS and based on KDE Breeze.
+- [wofi](https://sr.ht/~scoopta/wofi/) : launcher/menu for wlroots based wayland compositors
 
 ## USAGE
+
+### Install packages
+
+```bash
+yay -Syu hyprland-git \
+    waybar-hyprland-git \
+    swaylock-effects \
+    wlogout \
+    wofi \
+    capitaine-cursors \
+    sweet-theme-git \
+    xdg-desktop-portal-hyprland \
+```
 
 ```bash
 git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakdev/dotfiles.git $HOME/dotfiles-tmp
@@ -24,7 +44,7 @@ git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakd
 ![Neovim Editing](.screenshots/ss-3.png)
 ![Ranger](.screenshots/ss-4.png)
 
-###### Optionals cool shell command wrapper
+###### Optionals shell command wrapper
 
 - [bat](https://github.com/sharkdp/bat)
 - [prettyping](https://github.com/denilsonsa/prettyping)
@@ -33,6 +53,5 @@ git clone --depth 1 --separate-git-dir=$HOME/.dotfiles https://github.com/nabakd
 
 ###### References
 
-- https://github.com/adi1090x/rofi
 - https://news.ycombinator.com/item?id=11071754
 - https://github.com/siduck76/dotfiles

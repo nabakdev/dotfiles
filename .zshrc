@@ -104,7 +104,7 @@ export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 export ESPIDF=/opt/esp-idf
-export XDG_CURRENT_DESKTOP=XFCE
+# export XDG_CURRENT_DESKTOP=XFCE
 export GTK_THEME=Fleon:dark
 
 if [ -d "$HOME/.config/composer/vendor/bin" ] ; then
@@ -128,11 +128,12 @@ alias zshrc="${=EDITOR} ~/.zshrc"
 alias nvimrc="${=EDITOR} ~/.config/nvim/init.lua"
 alias dotfile="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias xz='xz -T $(nproc)'
-alias ydl="youtube-dl --cookies $HOME/.youtube-cookies.txt -f \"bestaudio/best\" -ciw -o \"%(title)s.%(ext)s\" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail"
+alias ydl-audio="youtube-dl --cookies $HOME/.youtube-cookies.txt -f \"bestaudio/best\" -ciw -o \"%(title)s.%(ext)s\" -v --extract-audio --audio-quality 0 --audio-format m4a --add-metadata --embed-thumbnail"
 # --embed-thumbnail 
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias get_idf='. /opt/esp-idf/export.sh'
 alias lg='lazygit'
+alias vrecord="wl-screenrec --low-power off -f $HOME/Videos/ScreenRecords/$(date +%F-%H%M%S).mp4 --codec hevc"
 
 # nvim plugins
 alias nvim-plugins="nvim $HOME/.config/nvim/lua/plugins.lua"

@@ -5,3 +5,5 @@ local opt = { silent = true, noremap = true }
 local map = vim.api.nvim_set_keymap
 
 map("n", "<leader>fg", ':lua require("telescope.builtin").live_grep()<CR>', opt)
+map("n", "<leader>bco", ":BufferLineCloseOthers<CR>", opt)
+map("i", "<C-e>", "<Esc>A", opt)
