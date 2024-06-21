@@ -19,10 +19,11 @@
 /* Fix: active workspace doesn't show up */
 /* #workspaces button.focused { */
 #workspaces button.active {
-  color: #fa5aa4;
+  color: #0FA4AF;
 }
 
 #custom-powermenu,
+#battery,
 #cpu,
 #temperature,
 #memory,
@@ -68,7 +69,7 @@
 }
 
 #cpu {
-  color: #61afef;
+  color: #e64bd9;
 }
 
 #temperature {
@@ -82,6 +83,10 @@
 #network {
   color: #c678dd;
   min-width: 200px;
+}
+
+#battery {
+  color: #61afef;
 }
 
 #clock {
