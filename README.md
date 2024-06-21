@@ -29,6 +29,9 @@ yay -Syu hyprland-git \
     capitaine-cursors \
     sweet-theme-git \
     xdg-desktop-portal-hyprland \
+    iproute2 \
+    wireless_tools \
+
 ```
 
 ```bash
